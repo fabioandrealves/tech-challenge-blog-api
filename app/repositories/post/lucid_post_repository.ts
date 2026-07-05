@@ -4,20 +4,16 @@ import { CreatePostDTO } from '#dtos/create_post_dto'
 import { UpdatePostDTO } from '#dtos/update_post_dto'
 
 export class LucidPostRepository implements PostRepository {
-
   async create(data: CreatePostDTO) {
     return await Post.create(data)
   }
 
   async findAll() {
-    return await Post.query().preload('user');
+    return await Post.query().preload('user')
   }
 
   async findById(id: number) {
-    return await Post.query()
-      .where('id', id)
-      .preload('user')
-      .first()
+    return await Post.query().where('id', id).preload('user').first()
   }
 
   async update(id: number, data: UpdatePostDTO) {
@@ -34,6 +30,10 @@ export class LucidPostRepository implements PostRepository {
     const post = await Post.findOrFail(id)
 
     await post.delete()
+  }
+
+  async findByTeacher(userId: number) {
+    return await Post.query().where('userId', userId).preload('user')
   }
 
   async search(term: string) {

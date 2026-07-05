@@ -7,21 +7,24 @@ export type ScannedRoutes = {
     'auth.register': { paramsTuple?: []; params?: {} }
     'auth.login': { paramsTuple?: []; params?: {} }
     'posts.index': { paramsTuple?: []; params?: {} }
+    'posts.me': { paramsTuple?: []; params?: {} }
+    'posts.search': { paramsTuple?: []; params?: {} }
     'posts.show': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
     'posts.store': { paramsTuple?: []; params?: {} }
     'posts.update': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
     'posts.destroy': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
-    'posts.search': { paramsTuple?: []; params?: {} }
   }
   GET: {
     'posts.index': { paramsTuple?: []; params?: {} }
-    'posts.show': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
+    'posts.me': { paramsTuple?: []; params?: {} }
     'posts.search': { paramsTuple?: []; params?: {} }
+    'posts.show': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
   }
   HEAD: {
     'posts.index': { paramsTuple?: []; params?: {} }
-    'posts.show': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
+    'posts.me': { paramsTuple?: []; params?: {} }
     'posts.search': { paramsTuple?: []; params?: {} }
+    'posts.show': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
   }
   POST: {
     'auth.register': { paramsTuple?: []; params?: {} }

@@ -31,6 +31,7 @@ router.group(() => {
 router
   .group(() => {
     router.get('/', [PostsController, 'index'])
+    router.get('/me', [PostsController, 'me'])
     router.get('/search', [PostsController, 'search'])
     router.get('/:id', [PostsController, 'show'])
     router.post('/', [PostsController, 'store'])
