@@ -10,9 +10,17 @@ export default class PostsController {
     return response.ok(await this.postService.list())
   }
 
-  async show({ params, response }: HttpContext) {
-    return response.ok(await this.postService.findById(params.id))
+async show({ params, response }: HttpContext) {
+  const post = await this.postService.findById(params.id)
+
+  if (!post) {
+    return response.notFound({
+      message: 'Post not found',
+    })
   }
+
+  return response.ok(post)
+}
 
   async store({ request, auth, response }: HttpContext) {
     const payload = await request.validateUsing(createPostValidator)
