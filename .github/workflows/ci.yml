@@ -31,7 +31,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24
           cache: npm
 
       - name: Install dependencies
@@ -40,20 +40,6 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Run migrations
-        env:
-          DB_HOST: 127.0.0.1
-          DB_PORT: 3306
-          DB_USER: root
-          DB_PASSWORD: root
-          DB_DATABASE: blog_db
-        run: node ace migration:run
-
-      - name: Run seeders
-        env:
-          DB_HOST: 127.0.0.1
-          DB_PORT: 3306
-          DB_USER: root
-          DB_PASSWORD: root
-          DB_DATABASE: blog_db
-        run: node ace db:seed
+      - name: Run tests
+        run: npm testgit status
+        
